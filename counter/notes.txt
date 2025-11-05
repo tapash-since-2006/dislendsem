@@ -1,0 +1,272 @@
+//=================================================
+// 4-bit Asynchronous (Ripple) Counters
+// Using positive-edge triggered T flip-flops
+// Includes Up, Down, and Up/Down Counters
+//
+//               *** CORRECTED LOGIC ***
+//=================================================
+
+`timescale 1ns/1ns
+
+//====================
+// T Flip-Flop Module (Correct - No changes)
+//====================
+module tflipflop(q, t, clk, reset);
+    input t, clk, reset;
+    output reg q;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            q <= 1'b0;
+        else if (t)
+            q <= ~q;
+        else
+            q <= q;
+    end
+endmodule
+
+//====================
+// Asynchronous Up Counter (Corrected)
+//====================
+module async_up_counter(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // To count UP, clock the next stage with the INVERTED output (~q)
+    // A posedge on ~q is the same as a negedge on q
+    tflipflop tff0(q[0], 1'b1, clk, reset);    // LSB
+    tflipflop tff1(q[1], 1'b1, ~q[0], reset);
+    tflipflop tff2(q[2], 1'b1, ~q[1], reset);
+    tflipflop tff3(q[3], 1'b1, ~q[2], reset);
+endmodule
+
+//====================
+// Asynchronous Down Counter (Corrected)
+//====================
+module async_down_counter(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // To count DOWN, clock the next stage with the NON-INVERTED output (q)
+    tflipflop tff0(q[0], 1'b1, clk, reset);    // LSB
+    tflipflop tff1(q[1], 1'b1, q[0], reset);
+    tflipflop tff2(q[2], 1'b1, q[1], reset);
+    tflipflop tff3(q[3], 1'b1, q[2], reset);
+endmodule
+
+//====================
+// Asynchronous Up/Down Counter (Corrected)
+//====================
+module async_updown_counter(q, clk, reset, up_down);
+    input clk, reset, up_down;    // up_down = 1 -> up, 0 -> down
+    output [3:0] q;
+
+    wire clk1, clk2, clk3;
+
+    // LSB always toggles on main clock
+    tflipflop tff0(q[0], 1'b1, clk, reset);
+
+    // Generate intermediate clocks based on up_down signal
+    // up_down = 1 (UP):   use ~q as the clock source
+    // up_down = 0 (DOWN): use  q as the clock source
+    assign clk1 = up_down ? ~q[0] : q[0];
+    assign clk2 = up_down ? ~q[1] : q[1];
+    assign clk3 = up_down ? ~q[2] : q[2];
+
+    tflipflop tff1(q[1], 1'b1, clk1, reset);
+    tflipflop tff2(q[2], 1'b1, clk2, reset);
+    tflipflop tff3(q[3], 1'b1, clk3, reset);
+endmodule
+
+------------------------------------------------------------------------------------------------------
+
+
+
+//=================================================
+// 4-bit Asynchronous (Ripple) Counters
+// Using NEGATIVE-edge triggered T flip-flops
+//
+//               *** CORRECTED LOGIC ***
+//=================================================
+
+`timescale 1ns/1ns
+
+//====================
+// T Flip-Flop Module (Negative-Edge Triggered)
+//====================
+module tflipflop(q, t, clk, reset);
+    input t, clk, reset;
+    output reg q;
+
+    // The only change is from 'posedge clk' to 'negedge clk'
+    always @(negedge clk or posedge reset) begin
+        if (reset)
+            q <= 1'b0;
+        else if (t)
+            q <= ~q;
+        else
+            q <= q;
+    end
+endmodule
+
+//====================
+// Asynchronous Up Counter (Corrected for Neg-Edge)
+//====================
+module async_up_counter(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // To count UP, clock the next stage with the NON-INVERTED output (q)
+    tflipflop tff0(q[0], 1'b1, clk, reset);    // LSB
+    tflipflop tff1(q[1], 1'b1, q[0], reset);
+    tflipflop tff2(q[2], 1'b1, q[1], reset);
+    tflipflop tff3(q[3], 1'b1, q[2], reset);
+endmodule
+
+//====================
+// Asynchronous Down Counter (Corrected for Neg-Edge)
+//====================
+module async_down_counter(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // To count DOWN, clock the next stage with the INVERTED output (~q)
+    tflipflop tff0(q[0], 1'b1, clk, reset);    // LSB
+    tflipflop tff1(q[1], 1'b1, ~q[0], reset);
+    tflipflop tff2(q[2], 1'b1, ~q[1], reset);
+    tflipflop tff3(q[3], 1'b1, ~q[2], reset);
+endmodule
+
+//====================
+// Asynchronous Up/Down Counter (Corrected for Neg-Edge)
+//====================
+module async_updown_counter(q, clk, reset, up_down);
+    input clk, reset, up_down;    // up_down = 1 -> up, 0 -> down
+    output [3:0] q;
+
+    wire clk1, clk2, clk3;
+
+    // LSB always toggles on main clock
+    tflipflop tff0(q[0], 1'b1, clk, reset);
+
+    // Generate intermediate clocks based on up_down signal
+    // up_down = 1 (UP):   use  q as the clock source
+    // up_down = 0 (DOWN): use ~q as the clock source
+    assign clk1 = up_down ? q[0] : ~q[0];
+    assign clk2 = up_down ? q[1] : ~q[1];
+    assign clk3 = up_down ? q[2] : ~q[2];
+
+    tflipflop tff1(q[1], 1'b1, clk1, reset);
+    tflipflop tff2(q[2], 1'b1, clk2, reset);
+    tflipflop tff3(q[3], 1'b1, clk3, reset);
+endmodule
+
+
+-------------------------------------------------------------------------------------
+
+
+//=================================================
+// 4-bit Asynchronous UP Counter
+// Using positive-edge triggered JK flip-flops
+//=================================================
+
+`timescale 1ns/1ns
+
+//====================
+// JK Flip-Flop Module (Positive-Edge Triggered, Active-High Reset)
+//====================
+module jk_flipflop(q, j, k, clk, reset);
+    input j, k, clk, reset;
+    output reg q;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            q <= 1'b0;
+        else
+            case ({j, k})
+                2'b00: q <= q;      // Hold
+                2'b01: q <= 1'b0;   // Reset
+                2'b10: q <= 1'b1;   // Set
+                2'b11: q <= ~q;     // Toggle
+            endcase
+    end
+endmodule
+
+//====================
+// Asynchronous Up Counter
+//====================
+module async_up_counter_jk(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // Connect J and K inputs to 1'b1 for toggle mode
+    wire VCC = 1'b1;
+
+    // To count UP with positive-edge flip-flops, 
+    // the clock for the next stage is the INVERTED output (~Q) of the current stage.
+    
+    // LSB (Q[0]) is clocked by the main clock
+    jk_flipflop jkf0(q[0], VCC, VCC, clk, reset);   
+
+    // Higher bits are clocked by the inverted output of the previous stage
+    jk_flipflop jkf1(q[1], VCC, VCC, ~q[0], reset);
+    jk_flipflop jkf2(q[2], VCC, VCC, ~q[1], reset);
+    jk_flipflop jkf3(q[3], VCC, VCC, ~q[2], reset);
+endmodule
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+//=================================================
+// 4-bit Asynchronous UP Counter
+// Using positive-edge triggered D flip-flops
+//=================================================
+
+`timescale 1ns/1ns
+
+//====================
+// D Flip-Flop Module (Positive-Edge Triggered, Active-High Reset)
+//====================
+module d_flipflop(q, d, clk, reset);
+    input d, clk, reset;
+    output reg q;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            q <= 1'b0;
+        else
+            q <= d; // Output follows Data input on positive clock edge
+    end
+endmodule
+
+//====================
+// Asynchronous Up Counter
+//====================
+module async_up_counter_d(q, clk, reset);
+    input clk, reset;
+    output [3:0] q;
+
+    // Internal wires for D inputs, which are connected to the inverted Q outputs
+    wire d0, d1, d2, d3;
+    
+    // Connect D inputs to the inverted Q outputs for toggle mode (D = ~Q)
+    assign d0 = ~q[0]; 
+    assign d1 = ~q[1];
+    assign d2 = ~q[2];
+    assign d3 = ~q[3];
+
+    // To count UP with positive-edge flip-flops, 
+    // the clock for the next stage is the INVERTED output (~Q) of the current stage.
+    
+    // LSB (Q[0]) is clocked by the main clock
+    d_flipflop dff0(q[0], d0, clk, reset);   
+
+    // Higher bits are clocked by the inverted output of the previous stage
+    d_flipflop dff1(q[1], d1, ~q[0], reset);
+    d_flipflop dff2(q[2], d2, ~q[1], reset);
+    d_flipflop dff3(q[3], d3, ~q[2], reset);
+endmodule
+
+---------------------------------------------------------------------------------------------------------

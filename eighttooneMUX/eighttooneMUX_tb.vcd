@@ -1,0 +1,171 @@
+$date
+	Wed Nov 05 11:21:59 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module eighttooneMUX_tb $end
+$var wire 1 ! y $end
+$var reg 8 " i [7:0] $end
+$var reg 3 # s [2:0] $end
+$scope module Q1 $end
+$var wire 8 $ i [7:0] $end
+$var wire 3 % s [2:0] $end
+$var wire 1 ! y $end
+$var wire 5 & temp [4:0] $end
+$scope module f1 $end
+$var wire 4 ' i [3:0] $end
+$var wire 2 ( s [1:0] $end
+$var reg 1 ) y $end
+$upscope $end
+$scope module t0 $end
+$var wire 2 * i [1:0] $end
+$var wire 1 + s0 $end
+$var wire 1 , y $end
+$upscope $end
+$scope module t1 $end
+$var wire 2 - i [1:0] $end
+$var wire 1 . s0 $end
+$var wire 1 / y $end
+$upscope $end
+$scope module t2 $end
+$var wire 2 0 i [1:0] $end
+$var wire 1 1 s0 $end
+$var wire 1 2 y $end
+$upscope $end
+$scope module t3 $end
+$var wire 2 3 i [1:0] $end
+$var wire 1 4 s0 $end
+$var wire 1 5 y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+15
+04
+b11 3
+02
+01
+b10 0
+1/
+0.
+b1 -
+1,
+0+
+b1 *
+1)
+b0 (
+b1011 '
+b11011 &
+b0 %
+b11100101 $
+b0 #
+b11100101 "
+1!
+$end
+#10
+0!
+0)
+b1100 '
+0,
+0/
+b1100 &
+12
+1+
+1.
+11
+14
+b1 #
+b1 %
+#20
+1!
+1)
+b1011 '
+1,
+1/
+b11011 &
+02
+0+
+0.
+01
+04
+b1 (
+b10 #
+b10 %
+#30
+0!
+0)
+b1100 '
+0,
+0/
+b1100 &
+12
+1+
+1.
+11
+14
+b11 #
+b11 %
+#40
+b1011 '
+0!
+1,
+1/
+02
+b1011 &
+0)
+0+
+0.
+01
+04
+b10 (
+b100 #
+b100 %
+#50
+1!
+1)
+b1100 '
+0,
+0/
+b11100 &
+12
+1+
+1.
+11
+14
+b101 #
+b101 %
+#60
+b1011 '
+1,
+1/
+b11011 &
+02
+0+
+0.
+01
+04
+b11 (
+b110 #
+b110 %
+#70
+b1100 '
+0,
+0/
+b11100 &
+12
+1+
+1.
+11
+14
+b111 #
+b111 %
+#80

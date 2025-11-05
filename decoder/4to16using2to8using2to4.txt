@@ -1,0 +1,102 @@
+// File: decoder4to16_using3to8_high.v
+
+// 2-to-4 decoder (active-high)
+module decoder2to4_high(
+    input [1:0] A,
+    input EN,
+    output reg [3:0] Y
+);
+    always @(*) begin
+        if (EN) begin
+            case(A)
+                2'b00: Y = 4'b0001;
+                2'b01: Y = 4'b0010;
+                2'b10: Y = 4'b0100;
+                2'b11: Y = 4'b1000;
+            endcase
+        end else begin
+            Y = 4'b0000;
+        end
+    end
+endmodule
+
+// 3-to-8 decoder using 2-to-4 decoders
+module decoder3to8_high(
+    input [2:0] A,
+    input EN,
+    output [7:0] Y
+);
+    wire [3:0] Y_low, Y_high;
+
+    decoder2to4_high low(.A(A[1:0]), .EN(EN & ~A[2]), .Y(Y_low));
+    decoder2to4_high high(.A(A[1:0]), .EN(EN &  A[2]), .Y(Y_high));
+
+    assign Y = {Y_high, Y_low};
+endmodule
+
+// 4-to-16 decoder using 3-to-8 decoders
+module decoder4to16_high(
+    input [3:0] A,
+    input EN,
+    output [15:0] Y
+);
+    wire [7:0] Y_low, Y_high;
+
+    decoder3to8_high low(.A(A[2:0]), .EN(EN & ~A[3]), .Y(Y_low));
+    decoder3to8_high high(.A(A[2:0]), .EN(EN &  A[3]), .Y(Y_high));
+
+    assign Y = {Y_high, Y_low};
+endmodule
+-----------------------------------------------------------------------------------------------------------------------------------
+
+// active low
+
+// File: decoder4to16_using3to8_low.v
+
+// 2-to-4 decoder (active-low)
+module decoder2to4_low(
+    input [1:0] A,
+    input EN,
+    output reg [3:0] Y
+);
+    always @(*) begin
+        if (EN) begin
+            case(A)
+                2'b00: Y = 4'b1110;
+                2'b01: Y = 4'b1101;
+                2'b10: Y = 4'b1011;
+                2'b11: Y = 4'b0111;
+            endcase
+        end else begin
+            Y = 4'b1111;
+        end
+    end
+endmodule
+
+// 3-to-8 decoder using 2-to-4 decoders
+module decoder3to8_low(
+    input [2:0] A,
+    input EN,
+    output [7:0] Y
+);
+    wire [3:0] Y_low, Y_high;
+
+    decoder2to4_low low(.A(A[1:0]), .EN(EN & ~A[2]), .Y(Y_low));
+    decoder2to4_low high(.A(A[1:0]), .EN(EN &  A[2]), .Y(Y_high));
+
+    assign Y = {Y_high, Y_low};
+endmodule
+
+// 4-to-16 decoder using 3-to-8 decoders
+module decoder4to16_low(
+    input [3:0] A,
+    input EN,
+    output [15:0] Y
+);
+    wire [7:0] Y_low, Y_high;
+
+    decoder3to8_low low(.A(A[2:0]), .EN(EN & ~A[3]), .Y(Y_low));
+    decoder3to8_low high(.A(A[2:0]), .EN(EN &  A[3]), .Y(Y_high));
+
+    assign Y = {Y_high, Y_low};
+endmodule

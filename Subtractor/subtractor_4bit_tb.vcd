@@ -1,0 +1,99 @@
+$date
+	Wed Nov 05 02:23:44 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module subtractor_4bit_tb $end
+$var wire 4 ! diff [3:0] $end
+$var wire 1 " cout $end
+$var reg 4 # a [3:0] $end
+$var reg 4 $ b [3:0] $end
+$scope module uut $end
+$var wire 4 % a [3:0] $end
+$var wire 4 & b [3:0] $end
+$var wire 4 ' b_comp [3:0] $end
+$var wire 4 ( diff [3:0] $end
+$var wire 1 " cout $end
+$scope module adder1 $end
+$var wire 4 ) a [3:0] $end
+$var wire 4 * b [3:0] $end
+$var wire 1 + cin $end
+$var wire 1 " cout $end
+$var wire 4 , g [3:0] $end
+$var wire 4 - p [3:0] $end
+$var wire 4 . sum [3:0] $end
+$var wire 3 / c [3:1] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 /
+b110 .
+b101 -
+b1000 ,
+1+
+b1100 *
+b1001 )
+b110 (
+b1100 '
+b11 &
+b1001 %
+b11 $
+b1001 #
+1"
+b110 !
+$end
+#10
+b111 /
+0"
+b1110 !
+b1110 (
+b1110 .
+b110 '
+b110 *
+b1 -
+b110 ,
+b1001 $
+b1001 &
+b111 #
+b111 %
+b111 )
+#20
+1"
+b111 /
+b0 !
+b0 (
+b0 .
+b1010 '
+b1010 *
+b1111 -
+b0 ,
+b101 $
+b101 &
+b101 #
+b101 %
+b101 )
+#30
+b1 /
+b110 !
+b110 (
+b110 .
+b1001 '
+b1001 *
+b101 -
+b1000 ,
+b110 $
+b110 &
+b1100 #
+b1100 %
+b1100 )
+#40

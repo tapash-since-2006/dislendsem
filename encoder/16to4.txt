@@ -1,0 +1,23 @@
+module priority_encoder_16to4(
+    input [15:0] D,      // 16-bit input
+    output reg [3:0] Y,  // 4-bit output
+    output reg valid      // Valid flag
+);
+
+integer i;
+
+always @(*) begin
+    Y = 4'b0000;   // Default output
+    valid = 0;     // Default no valid input
+
+    // Check inputs from highest to lowest
+    for (i = 15; i >= 0; i = i - 1) begin
+        if (D[i]) begin
+            Y = i[3:0];   // Output is the index of the highest priority input
+            valid = 1;
+            disable for;  // Stop after the first high input (highest priority)
+        end
+    end
+end
+
+endmodule

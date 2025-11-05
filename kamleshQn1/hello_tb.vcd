@@ -1,0 +1,271 @@
+$date
+	Wed Nov 05 20:04:20 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module hello_tb $end
+$var wire 2 ! q [1:0] $end
+$var reg 4 " a [3:0] $end
+$var reg 4 # b [3:0] $end
+$var reg 1 $ clk $end
+$var reg 1 % reset $end
+$scope module Q1 $end
+$var wire 4 & a [3:0] $end
+$var wire 4 ' b [3:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var wire 1 ( val $end
+$var wire 4 ) temp1 [3:0] $end
+$var wire 1 * t1 $end
+$var wire 2 + q [1:0] $end
+$scope module h1 $end
+$var wire 4 , a [3:0] $end
+$var wire 4 - b [3:0] $end
+$var wire 4 . y [3:0] $end
+$var wire 1 ( val $end
+$var wire 1 * cout $end
+$scope module f1 $end
+$var wire 4 / a [3:0] $end
+$var wire 4 0 b [3:0] $end
+$var wire 1 1 cin $end
+$var wire 4 2 y [3:0] $end
+$var wire 3 3 temp [2:0] $end
+$var wire 1 * cout $end
+$scope module fa0 $end
+$var wire 1 4 a $end
+$var wire 1 5 b $end
+$var wire 1 1 cin $end
+$var wire 1 6 cout $end
+$var wire 1 7 y $end
+$upscope $end
+$scope module fa1 $end
+$var wire 1 8 a $end
+$var wire 1 9 b $end
+$var wire 1 : cin $end
+$var wire 1 ; cout $end
+$var wire 1 < y $end
+$upscope $end
+$scope module fa2 $end
+$var wire 1 = a $end
+$var wire 1 > b $end
+$var wire 1 ? cin $end
+$var wire 1 @ cout $end
+$var wire 1 A y $end
+$upscope $end
+$scope module fa3 $end
+$var wire 1 B a $end
+$var wire 1 C b $end
+$var wire 1 D cin $end
+$var wire 1 * cout $end
+$var wire 1 E y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module h2 $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var wire 1 ( val $end
+$var wire 1 F temp $end
+$var wire 2 G q [1:0] $end
+$scope module tff1 $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var wire 1 H t $end
+$var reg 1 I q $end
+$upscope $end
+$scope module tff2 $end
+$var wire 1 F clk $end
+$var wire 1 % reset $end
+$var wire 1 J t $end
+$var reg 1 K q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0K
+1J
+0I
+1H
+b0 G
+0F
+0E
+0D
+1C
+1B
+1A
+0@
+1?
+0>
+0=
+0<
+1;
+0:
+19
+18
+17
+06
+05
+04
+b10 3
+b101 2
+11
+b1010 0
+b1010 /
+b101 .
+b101 -
+b1010 ,
+b0 +
+1*
+b101 )
+0(
+b101 '
+b1010 &
+1%
+0$
+b101 #
+b1010 "
+b0 !
+$end
+#5
+1$
+#10
+0$
+0%
+#15
+1K
+1F
+b11 !
+b11 +
+b11 G
+1I
+1$
+#20
+b1 !
+b1 +
+b1 G
+0K
+0F
+1<
+1D
+1*
+1(
+1:
+0A
+1@
+0E
+b111 3
+16
+b10 )
+b10 .
+b10 2
+07
+1>
+0C
+b110 0
+14
+0$
+b1001 #
+b1001 '
+b1001 -
+b1011 "
+b1011 &
+b1011 ,
+b1011 /
+#25
+1K
+1F
+b10 !
+b10 +
+b10 G
+0I
+1$
+#30
+0F
+0(
+1E
+b1000 )
+b1000 .
+b1000 2
+0<
+1C
+b1110 0
+08
+0$
+b1 #
+b1 '
+b1 -
+b1001 "
+b1001 &
+b1001 ,
+b1001 /
+#35
+0K
+1F
+b1 !
+b1 +
+b1 G
+1I
+1$
+#40
+0:
+b110 3
+06
+17
+b1001 )
+b1001 .
+b1001 2
+0<
+04
+18
+0$
+b1010 "
+b1010 &
+b1010 ,
+b1010 /
+#45
+0F
+b0 !
+b0 +
+b0 G
+0I
+1$
+#50
+b10 !
+b10 +
+b10 G
+1K
+1<
+1F
+1:
+1(
+b111 3
+16
+07
+0A
+b10 )
+b10 .
+b10 2
+0E
+0>
+b1010 0
+14
+1=
+0B
+0$
+b101 #
+b101 '
+b101 -
+b111 "
+b111 &
+b111 ,
+b111 /
