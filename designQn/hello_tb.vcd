@@ -1,0 +1,450 @@
+$date
+	Wed Nov 05 22:13:46 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module hello_tb $end
+$var wire 4 ! Y [3:0] $end
+$var reg 3 " A [2:0] $end
+$var reg 3 # B [2:0] $end
+$var reg 1 $ clk $end
+$var reg 1 % reset $end
+$scope module Q1 $end
+$var wire 3 & A [2:0] $end
+$var wire 3 ' B [2:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var wire 4 ( sub_Y [3:0] $end
+$var wire 2 ) sel [1:0] $end
+$var wire 4 * or_Y [3:0] $end
+$var wire 4 + and_Y [3:0] $end
+$var wire 4 , add_Y [3:0] $end
+$var wire 4 - Y [3:0] $end
+$scope module add_inst $end
+$var wire 3 . A [2:0] $end
+$var wire 3 / B [2:0] $end
+$var wire 1 0 c2 $end
+$var wire 1 1 c1 $end
+$var wire 1 2 c0 $end
+$var wire 4 3 Y [3:0] $end
+$upscope $end
+$scope module and_inst $end
+$var wire 3 4 A [2:0] $end
+$var wire 3 5 B [2:0] $end
+$var wire 4 6 Y [3:0] $end
+$upscope $end
+$scope module counter_inst $end
+$var wire 1 $ clk $end
+$var wire 1 % reset $end
+$var wire 1 7 t0 $end
+$var wire 1 8 t1 $end
+$var wire 2 9 q [1:0] $end
+$scope module df0 $end
+$var wire 1 $ clk $end
+$var wire 1 7 d $end
+$var wire 1 % reset $end
+$var reg 1 : q $end
+$upscope $end
+$scope module df1 $end
+$var wire 1 $ clk $end
+$var wire 1 8 d $end
+$var wire 1 % reset $end
+$var reg 1 ; q $end
+$upscope $end
+$upscope $end
+$scope module mux_inst $end
+$var wire 4 < in0 [3:0] $end
+$var wire 4 = in2 [3:0] $end
+$var wire 2 > sel [1:0] $end
+$var wire 4 ? out [3:0] $end
+$var wire 4 @ in3 [3:0] $end
+$var wire 4 A in1 [3:0] $end
+$upscope $end
+$scope module or_inst $end
+$var wire 3 B A [2:0] $end
+$var wire 3 C B [2:0] $end
+$var wire 4 D Y [3:0] $end
+$upscope $end
+$scope module sub_inst $end
+$var wire 3 E A [2:0] $end
+$var wire 3 F B [2:0] $end
+$var wire 3 G B_comp [2:0] $end
+$var wire 1 H c2 $end
+$var wire 1 I c1 $end
+$var wire 1 J c0 $end
+$var wire 4 K Y [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 K
+1J
+1I
+1H
+b111 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+0;
+0:
+b0 9
+08
+17
+b0 6
+b0 5
+b0 4
+b0 3
+02
+01
+00
+b0 /
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+1%
+0$
+b0 #
+b0 "
+b0 !
+$end
+#5
+1$
+#10
+0$
+#12
+0J
+b11 !
+b11 -
+b11 ?
+b11 ,
+b11 3
+b11 <
+b1 (
+b1 A
+b1 K
+b110 G
+b11 *
+b11 @
+b11 D
+b1 #
+b1 '
+b1 /
+b1 5
+b1 C
+b1 F
+b10 "
+b10 &
+b10 .
+b10 4
+b10 B
+b10 E
+0%
+#15
+18
+07
+b1 !
+b1 -
+b1 ?
+b1 )
+b1 9
+b1 >
+1:
+1$
+#20
+0$
+#25
+17
+b0 !
+b0 -
+b0 ?
+1;
+b10 )
+b10 9
+b10 >
+0:
+1$
+#30
+0$
+#35
+b11 !
+b11 -
+b11 ?
+08
+07
+b11 )
+b11 9
+b11 >
+1:
+1$
+#40
+0$
+#45
+17
+0;
+b0 )
+b0 9
+b0 >
+0:
+1$
+#50
+0$
+#52
+10
+11
+b1000 !
+b1000 -
+b1000 ?
+12
+b1000 ,
+b1000 3
+b1000 <
+1J
+0I
+b10 (
+b10 A
+b10 K
+b100 G
+b1 +
+b1 6
+b1 =
+b111 *
+b111 @
+b111 D
+b11 #
+b11 '
+b11 /
+b11 5
+b11 C
+b11 F
+b101 "
+b101 &
+b101 .
+b101 4
+b101 B
+b101 E
+#55
+18
+07
+b10 !
+b10 -
+b10 ?
+b1 )
+b1 9
+b1 >
+1:
+1$
+#60
+0$
+#65
+17
+b1 !
+b1 -
+b1 ?
+1;
+b10 )
+b10 9
+b10 >
+0:
+1$
+#70
+0$
+#75
+b111 !
+b111 -
+b111 ?
+08
+07
+b11 )
+b11 9
+b11 >
+1:
+1$
+#80
+0$
+#85
+17
+b1000 !
+b1000 -
+b1000 ?
+0;
+b0 )
+b0 9
+b0 >
+0:
+1$
+#90
+0$
+#92
+b1001 !
+b1001 -
+b1001 ?
+02
+b1001 ,
+b1001 3
+b1001 <
+b101 (
+b101 A
+b101 K
+1I
+b101 G
+b10 +
+b10 6
+b10 =
+b10 #
+b10 '
+b10 /
+b10 5
+b10 C
+b10 F
+b111 "
+b111 &
+b111 .
+b111 4
+b111 B
+b111 E
+#95
+18
+07
+b101 !
+b101 -
+b101 ?
+b1 )
+b1 9
+b1 >
+1:
+1$
+#100
+0$
+#105
+17
+b10 !
+b10 -
+b10 ?
+1;
+b10 )
+b10 9
+b10 >
+0:
+1$
+#110
+0$
+#115
+b111 !
+b111 -
+b111 ?
+08
+07
+b11 )
+b11 9
+b11 >
+1:
+1$
+#120
+0$
+#125
+17
+b1001 !
+b1001 -
+b1001 ?
+0;
+b0 )
+b0 9
+b0 >
+0:
+1$
+#130
+0$
+#132
+0H
+b1101 (
+b1101 A
+b1101 K
+b1 G
+b110 #
+b110 '
+b110 /
+b110 5
+b110 C
+b110 F
+b11 "
+b11 &
+b11 .
+b11 4
+b11 B
+b11 E
+#135
+18
+07
+b1101 !
+b1101 -
+b1101 ?
+b1 )
+b1 9
+b1 >
+1:
+1$
+#140
+0$
+#145
+17
+b10 !
+b10 -
+b10 ?
+1;
+b10 )
+b10 9
+b10 >
+0:
+1$
+#150
+0$
+#155
+b111 !
+b111 -
+b111 ?
+08
+07
+b11 )
+b11 9
+b11 >
+1:
+1$
+#160
+0$
+#165
+17
+b1001 !
+b1001 -
+b1001 ?
+0;
+b0 )
+b0 9
+b0 >
+0:
+1$
+#170
+0$
+#172
