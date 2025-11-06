@@ -1,4 +1,4 @@
-// asynchrous up counter
+// asynchrous up/down counter depending on the value received from the hello folder i,e the subtractoer thign
 
 module helloone(q,clk,reset,val);
     input clk,reset,val;

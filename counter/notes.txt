@@ -252,6 +252,10 @@ module async_up_counter_d(q, clk, reset);
     wire d0, d1, d2, d3;
     
     // Connect D inputs to the inverted Q outputs for toggle mode (D = ~Q)
+
+
+    // we must do this no matter what because in d flip flop there is no invert condition 
+    // like t=1 or j=k=1 which we do in T and JK flip flop........
     assign d0 = ~q[0]; 
     assign d1 = ~q[1];
     assign d2 = ~q[2];
